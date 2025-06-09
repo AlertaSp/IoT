@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "author": "Matheus Duarte",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 43.1, "left": 110.2, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot", "top": 181.1, "left": 499, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht", "top": -20, "left": 300, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 130.8,
+      "left": 234.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "res1",
+      "top": 167.15,
+      "left": 393.6,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-button",
+      "id": "btn1",
+      "top": 60,
+      "left": 300,
+      "attrs": { "label": "Chuva" }
+    }
+  ],
+  "connections": [
+    [ "pot:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot:SIG", "esp:D32", "blue", [ "v124.8", "h-394", "v-163.8" ] ],
+    [ "dht:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "dht:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "dht:SDA", "esp:D12", "green", [ "v0" ] ],
+    [ "led1:A", "esp:D14", "red", [ "v0" ] ],
+    [ "led1:C", "res1:1", "black", [ "v0" ] ],
+    [ "res1:2", "esp:GND.2", "black", [ "v0" ] ],
+    [ "btn1:1.r", "esp:D26", "green", [ "v0" ] ],
+    [ "btn1:2.r", "esp:GND.2", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
